@@ -55,12 +55,10 @@ public class WeatherService {
         }
 
         try {
-            // Try parsing "HH:mm:ss" (24-hour format with seconds)
             DateTimeFormatter formatterWithSeconds = DateTimeFormatter.ofPattern("HH:mm:ss");
             return LocalTime.parse(timeStr, formatterWithSeconds);
         } catch (Exception e1) {
             try {
-                // Try parsing "HH:mm" (24-hour format without seconds)
                 DateTimeFormatter formatter24 = DateTimeFormatter.ofPattern("HH:mm");
                 return LocalTime.parse(timeStr, formatter24);
             } catch (Exception e2) {
